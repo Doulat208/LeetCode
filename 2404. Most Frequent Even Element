@@ -1,0 +1,25 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+       HashMap<Integer, Integer> data = new HashMap<Integer, Integer>();
+
+       for(int i : nums){
+        if(i%2 == 0){
+            if(data.containsKey(i)) data.put(i, data.get(i)+1);
+            else data.put(i, 1);
+        }
+       }
+
+       int res = -1;
+       int freq = -1;
+
+       for(int n : data.keySet()){
+        int temp = data.get(n);
+        if(temp > freq || (temp == freq) && n < res) { 
+            freq = temp;
+            res = n;
+        }
+       }
+
+       return res;
+    }
+}

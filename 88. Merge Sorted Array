@@ -1,0 +1,41 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // for(int i = 0, j = 0; i<m && j<n; i++,j++){
+        //     if(int )
+
+        // }
+        // int i, j, temp;
+        // boolean swapped;
+        // for (i = 0; i < m+n - 1; i++) {
+        //     swapped = false;
+        //     for (j = 0; j < m+n - i - 1; j++) {
+        //         if (nums1[j] > nums1[j + 1]) {
+                    
+        //             // Swap arr[j] and arr[j+1]
+        //             temp = nums1[j];
+        //             nums1[j] = nums1[j + 1];
+        //             nums1[j + 1] = temp;
+        //             swapped = true;
+        //         }
+        //     }
+
+        //     // If no two elements were
+        //     // swapped by inner loop, then break
+        //     if (swapped == false)
+        //         break;
+        // }
+        int n1 = m -1;
+        int n2 = n-1;
+        int r = m+n-1;
+        while(n2>=0){
+            if(n1 >= 0 && nums1[n1] > nums2[n2]){
+                nums1[r] = nums1[n1];
+                n1 -= 1;
+            }else{
+                nums1[r] = nums2[n2];
+                n2 -= 1;
+            }
+            r -= 1;
+        }
+    }
+}
